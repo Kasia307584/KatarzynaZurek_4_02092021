@@ -439,7 +439,8 @@ input[data-error]::after {
 .hero-headline {
   font-size: 6rem;
   font-weight: normal;
-  white-space: nowrap;
+  /* white-space: nowrap; J'enleve element pour mieux gérer la mise en page et la responsivité */
+  width: 800px; /* j'ajoute cette propieté pour la mise en page plus en accord avec les maquettes */
 }
 .hero-text {
   width: 146%;
@@ -463,6 +464,7 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover; /* j'ajoute pour un meilleur affichage de l'image */
 }
 .copyrights {
   color: #fe142f;
@@ -497,7 +499,8 @@ footer {
   }
   .hero-headline {
     font-size: 4rem;
-    white-space: normal;
+    /* white-space: normal; Il n'y a plus besoin de cette propieté */
+    width: unset; /* j'ajoute cette propieté pour la responsivité de la page */
   }
   .hero-text {
     width: unset;
