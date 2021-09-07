@@ -110,7 +110,7 @@ main {
   padding-right: 2vw;
   margin: 1px 20px 15px;
   border-radius: 2rem;
-  text-align: justify;
+  /* text-align: justify; j'ai enleve cette propieté car cela fait des grosses espaces moches entre les mots */
 
 
 }
@@ -190,10 +190,11 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 15px; /* j'ai diminué la taille de la fonte pour faire plus resemblant à la maquette */
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  margin-top: 0.4em; /* j'ajoute cette propieté pour décoller la phrase de champs d'input au-dessus */
 }
 input {
   padding: 8px;
@@ -420,7 +421,7 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
+  /* min-width: 424px; j'enleve cette propieté pour la responsivité en version mobile */
 }
 .hero-content::after {
   content: "";
@@ -448,7 +449,7 @@ input[data-error]::after {
 }
 .btn-signup {
   outline: none;
-  text-transform: capitalize;
+  /* text-transform: capitalize; j'enleve cette propieté car ça a l'air moche en français (première lettre de chaque mot dans la phrase en majuscules) */
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
@@ -495,7 +496,7 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 4rem;
     white-space: normal;
   }
   .hero-text {
