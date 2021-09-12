@@ -53,14 +53,10 @@ function showErrMessage(elem, errTxt) {
   errMessageElem.classList.add("form-err-message");
   errMessageElem.innerHTML = errTxt;
 
-	let br = document.createElement("br");
-
   if (elem !== radioButtons) {
 		elem.parentElement.appendChild(errMessageElem);
-		elem.parentElement.appendChild(br);
 	} else {
 		elem[0].parentElement.appendChild(errMessageElem);
-		elem[0].parentElement.appendChild(br);
 	}
 }
 
@@ -70,51 +66,12 @@ function removeErrMessage() {
     errMessageElems[i].remove();
 }
 
-
-function isFirstNameValid() {
-  console.log(firstNameInput.checkValidity());
-  return firstNameInput.checkValidity();
-/*	
-  if (value !== null && value.length >= 2) 
-    return true;
-	else 
-    return false;
-*/
-}
-
-function isLastNameValid() {
-  return lastNameInput.checkValidity();
-/*
-  let value = lastNameInput.value;
-	
-  if (value !== null && value.length >= 2) 
-    return true;
-	else 
-    return false;
-*/
-}
-
 function isEmailValid() {
-  return emailInput.checkValidity()
-/*  
+  // return emailInput.checkValidity()
+
   let regex = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/;
   return regex.test(emailInput.value); 
-*/
-}
 
-function isBirthDateValid() {
-  return birthDateInput.checkValidity()
-/*  
-  let regex = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/;
-  return regex.test(emailInput.value); 
-*/
-}
-
-function isQuantityValid() {
-  if (quantityInput.value !== null)
-    return true;
-  else
-    return false;
 }
 
 function isLocationChecked() {
@@ -129,42 +86,44 @@ function isLocationChecked() {
   return false;
 }
 
-function isTermsChecked() {
-  return termsCheckbox.checked; 
-}
 
 const btnSubmit = document.querySelector(".btn-submit");
-console.log(btnSubmit);
 
-btnSubmit.addEventListener("click", function(e) {
-  e.preventDefault();
-  console.log("check")
-  //removeErrMessage();
+// document.querySelector("form").addEventListener("onsubmit", function(e) {
+//   e.preventDefault();
+//   console.log("form::onsubmit");
+// // })
+
+btnSubmit.addEventListener("click", function(e) { 
+  e.preventDefault(); // prevenir le comportement par default de: cliquer sur input type:submit ?
+  console.log("btn-submit::click")
+  removeErrMessage();
   
   let isValid = true;
 
-  if (!isFirstNameValid()) //mets checkValidity directement ici
+  if (!firstNameInput.checkValidity()) // function checkValidity permet de verifier si l'utilisateur a saisi le champs de l'input en accord avec les propietés ds HTML, ici: minlength:2 et requiered
   {
     isValid = false;
     showErrMessage(firstNameInput, errorMessages.firstName);
-    console.log("ca marche")
+    // firstNameInput.innerHTML = "<div style='color: red;'>"+"Please enter your first name</div>";
+    // removeEventListener();
   }
-  if(!isLastNameValid())
+  if(!lastNameInput.checkValidity())
   {
     isValid = false;    
     showErrMessage(lastNameInput, errorMessages.lastName);
-  }
+   }
   if(!isEmailValid())
   {
     isValid = false;    
     showErrMessage(emailInput, errorMessages.email);
   }
-  if(!isBirthDateValid())
+  if(!birthDateInput.checkValidity())
   {
     isValid = false;    
     showErrMessage(birthDateInput, errorMessages.birthDate);
   }
-  if(!isQuantityValid())
+  if(!quantityInput.checkValidity())
   {
     isValid = false;    
     showErrMessage(quantityInput, errorMessages.quantity);
@@ -174,14 +133,15 @@ btnSubmit.addEventListener("click", function(e) {
     isValid = false;    
     showErrMessage(radioButtons, errorMessages.location);
   }
-  if(!isTermsChecked())
+  if(!termsCheckbox.checked) // function checked permet de verifier si la case est cochée
   {
     isValid = false;    
     showErrMessage(termsCheckbox, errorMessages.terms);
   }
  
   if (isValid)
+  {
     document.querySelector("form").submit();
-}) 
-//function formValidator(e) {//elle n'est pas appele
-  
+    alert("Félicitations, vous êtes inscrit !");
+  }
+})

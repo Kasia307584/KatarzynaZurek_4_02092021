@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr"> <!-- j'ai changé la langue -->
   <head>
     <meta charset="utf-8" />
     <title>Reservation</title>
@@ -33,7 +33,7 @@
       <div class="hero-section">
         <div class="hero-content">
           <h1 class="hero-headline">
-            Marathon national de jeux vidéos <!-- j'ai enlevé <br> au milieu du texte -->
+            Marathon national de jeux vidéos <!-- j'ai enlevé <br> qui se trouvait au milieu de la phrase -->
           </h1>
           <p class="hero-text">
             Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées !
@@ -58,8 +58,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return formValidator(e);"
-            >
+            > <!-- onsubmit="return formValidator(e);" -->
               <div
                 class="formData">
                 <label for="first-name">Prénom</label><br>
@@ -69,8 +68,8 @@
                   id="first"
                   name="first"
                   minlength="2"
-                  required
-                /><br>
+                  required 
+                /><br> <!-- required ajoutés partout -->
               </div>
               <div
                 class="formData">
@@ -81,8 +80,8 @@
                   id="last"
                   name="last"
                   minlength="2"
-                  required
-                /><br>
+                  required 
+                /><br> 
               </div>
               <div
                 class="formData">
@@ -92,6 +91,7 @@
                   type="email"
                   id="email"
                   name="email"
+                  required
                 /><br>
               </div>
               <div
@@ -102,6 +102,7 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br>
               </div>
               <div
@@ -114,11 +115,12 @@
                 name="quantity" 
                 min="0" 
                 max="99"
+                required
                 /><br> <!-- J'ai ajouté la fermeture d'input et j'ai ajouté br -->
               </div>
               <div
                 class="formData">
-                <label class="text-label" for="cities">Quelles villes ?</label><br> <!-- J'ai changé p en label et j'ai changé ca ligne, j'ai ajouté for et br. -->
+                <label class="text-label" for="location" required>Quelles villes ?</label><br> <!-- J'ai changé p en label et j'ai changé ca ligne, j'ai ajouté for et br. -->
                 <input
                   class="checkbox-input"
                   type="radio"

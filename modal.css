@@ -201,6 +201,10 @@ input {
   border: 0.8px solid #ccc;
   outline: none;
 }
+/* input:invalid { 
+  border: 2px solid red;
+} */
+/* j'ajoute pour changer le style quand le champs d'input mal rempli */
 .text-control {
   margin: 0;
   padding: 8px;
