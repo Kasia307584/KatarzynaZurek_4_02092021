@@ -457,7 +457,7 @@ input[data-error]::after {
 }
 .btn-signup {
   outline: none;
-  /* text-transform: capitalize; j'enleve cette propieté car ça a l'air moche en français (première lettre de chaque mot dans la phrase en majuscules) */
+  /* text-transform: capitalize; j'enleve cette propieté car pas commun pour la langue française (première lettre de chaque mot dans la phrase en majuscules) */
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;

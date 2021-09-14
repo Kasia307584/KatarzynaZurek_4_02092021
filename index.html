@@ -60,7 +60,7 @@
               method="get"
             > <!-- onsubmit="return formValidator(e);" -->
               <div
-                class="formData">
+                class="formData" data-error="Veuillez entrer un prénom comportant 2 caractères ou plus." data-error-visible="false">
                 <label for="first-name">Prénom</label><br>
                 <input
                   class="text-control"
@@ -72,7 +72,7 @@
                 /><br> <!-- required ajoutés partout -->
               </div>
               <div
-                class="formData">
+                class="formData" data-error="Veuillez entrer un nom comportant 2 caractères ou plus." data-error-visible="false">
                 <label for="last-name">Nom</label><br>
                 <input
                   class="text-control"
@@ -84,7 +84,7 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error="Veuillez entrer une adresse email valide." data-error-visible="false">
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
@@ -95,7 +95,7 @@
                 /><br>
               </div>
               <div
-              class="formData">
+              class="formData" data-error="Veuillez entrer une date de naissance respectant le format JJ/MM/AAAA." data-error-visible="false">
               <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
@@ -106,7 +106,7 @@
                 /><br>
               </div>
               <div
-              class="formData">
+              class="formData" data-error="Veuillez entrer un nombre valide." data-error-visible="false">
               <label for="nbr-of-tournament">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input 
                 type="number" 
@@ -119,7 +119,7 @@
                 /><br> <!-- J'ai ajouté la fermeture d'input et j'ai ajouté br -->
               </div>
               <div
-              class="formData">
+              class="formData" data-error="Veuillez choisir une ville." data-error-visible="false">
                 <label class="text-label" for="location" required>Quelles villes ?</label><br> <!-- J'ai changé p en label et j'ai changé ca ligne, j'ai ajouté for et br. -->
                 <input
                   class="checkbox-input"
@@ -190,7 +190,7 @@
               </div>
 
               <div
-                class="formData">
+                class="formData" data-error="Veuillez accepter les conditions d'utilisations." data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="checkbox"
