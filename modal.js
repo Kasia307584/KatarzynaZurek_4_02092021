@@ -29,7 +29,8 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// show error messages
+// DOM Elements
+const form           = document.querySelector("form");
 const firstNameInput = document.getElementById("first");
 const lastNameInput  = document.getElementById("last");
 const emailInput     = document.getElementById("email");
@@ -38,6 +39,7 @@ const quantityInput  = document.getElementById("quantity");
 const radioButtons   = document.querySelectorAll(".checkbox-input[type=radio]");
 const termsCheckbox  = document.getElementById("checkbox1");
 
+// error messages
 const errorMessages = {
 	lastName:  "Veuillez entrer un nom comportant 2 caractères ou plus.",
 	firstName: "Veuillez entrer un prénom comportant 2 caractères ou plus.",
@@ -48,10 +50,13 @@ const errorMessages = {
 	terms:     "Veuillez accepter les conditions d'utilisations.",
 };
 
+
 function showErrMessage(elem, errTxt) {
-	let errMessageElem = document.createElement("div");//tu peux creer la div vide dans html
+	let errMessageElem = document.createElement("div"); // tu peux creer la div vide dans html
   errMessageElem.classList.add("form-err-message");
-  errMessageElem.innerHTML = errTxt;
+  errMessageElem.textContent = errTxt;
+  // document.getElementsByClassName("form-err-message").style.color = "red";
+  // elem.style.border = "2px solid red";
 
   if (elem !== radioButtons) {
 		elem.parentElement.appendChild(errMessageElem);
@@ -61,16 +66,38 @@ function showErrMessage(elem, errTxt) {
 }
 
 function removeErrMessage() {
-	let errMessageElems = document.getElementsByClassName("form-err-message");
-  for (let i=0; i < errMessageElems.length; i++)
+  let errMessageElems = Array.from(form.getElementsByClassName("form-err-message"));
+  for (let i=0; i < errMessageElems.length; i++){
     errMessageElems[i].remove();
+  }
 }
 
-function isEmailValid() {
-  // return emailInput.checkValidity()
+/*
+	let errMessageElems = document.querySelector("form").getElementsByClassName("form-err-message");
+
+  console.log("[1] errMessageElems.length = ", errMessageElems.length); // debug
+
+  for (let i=0; i < errMessageElems.length; i++)
+  {    
+    //console.log(errMessageElems[i].parentNode.innerHTML); // debug
+    //errMessageElems[i].parentNode.removeChild(errMessageElems[i]);
+    errMessageElems[i].remove();
+    console.log("[2] errMessageElems.length = ", errMessageElems.length); // debug
+    //console.log(errMessageElems[i].parentNode.innerHTML); // debug
+  }
+
+  console.log("[3] errMessageElems.length = ", document.getElementsByClassName("form-err-message").length); // debug
+}
+*/
+
+
+
+// emailTxt - string that contains the email adress entered by the user
+// function return true if emailTxt is valid email adress
+function isEmailValid(emailTxt) {
 
   let regex = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/;
-  return regex.test(emailInput.value); 
+  return regex.test(emailTxt);
 
 }
 
@@ -86,34 +113,28 @@ function isLocationChecked() {
   return false;
 }
 
+//const btnSubmit = document.querySelector(".btn-submit");
 
-const btnSubmit = document.querySelector(".btn-submit");
+document.querySelector(".btn-submit").addEventListener("click", function(e) { 
+  e.preventDefault();
 
-// document.querySelector("form").addEventListener("onsubmit", function(e) {
-//   e.preventDefault();
-//   console.log("form::onsubmit");
-// // })
-
-btnSubmit.addEventListener("click", function(e) { 
-  e.preventDefault(); // prevenir le comportement par default de: cliquer sur input type:submit ?
-  console.log("btn-submit::click")
   removeErrMessage();
-  
+
   let isValid = true;
 
   if (!firstNameInput.checkValidity()) // function checkValidity permet de verifier si l'utilisateur a saisi le champs de l'input en accord avec les propietés ds HTML, ici: minlength:2 et requiered
   {
     isValid = false;
     showErrMessage(firstNameInput, errorMessages.firstName);
-    // firstNameInput.innerHTML = "<div style='color: red;'>"+"Please enter your first name</div>";
-    // removeEventListener();
+    // firstNameInput.style.border = "2px solid red";
+    // firstNameInput.style.color = "red";
   }
   if(!lastNameInput.checkValidity())
   {
     isValid = false;    
     showErrMessage(lastNameInput, errorMessages.lastName);
    }
-  if(!isEmailValid())
+  if(!isEmailValid(emailInput.value))
   {
     isValid = false;    
     showErrMessage(emailInput, errorMessages.email);
@@ -138,10 +159,15 @@ btnSubmit.addEventListener("click", function(e) {
     isValid = false;    
     showErrMessage(termsCheckbox, errorMessages.terms);
   }
- 
+
   if (isValid)
   {
-    document.querySelector("form").submit();
+    form.submit();
     alert("Félicitations, vous êtes inscrit !");
   }
 })
+
+  
+// form.addEventListener("submit", function(e) {
+//   //alert("Félicitations, vous êtes inscrit !");
+// })
