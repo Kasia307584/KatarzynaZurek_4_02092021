@@ -10,8 +10,8 @@ function editNav() {
 // DOM Elements
 const modalbg  = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-const closeBtn = document.querySelectorAll(".close");
+const closeIcon = document.querySelector(".close");
+const closeBtn = document.querySelector(".btn-close");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -22,11 +22,19 @@ function launchModal() {
 }
 
 // close modal event
-closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+closeIcon.addEventListener("click", closeModal);
 
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
+}
+
+// close confirmation message event
+closeBtn.addEventListener("click", closeConfMessage);
+
+// close confirmation message form
+function closeConfMessage() {
+  modalbg.style.display="none";
 }
 
 // DOM Elements
@@ -47,8 +55,8 @@ const quantityDiv  = quantityInput.parentElement;
 const radioButtonsDiv  = radioButtons[0].parentElement;
 const termsCheckboxDiv = termsCheckbox.parentElement;
 
+// email regex
 let regex = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/;
-
 
 
 function isLocationChecked() {
@@ -64,17 +72,16 @@ function isLocationChecked() {
 }
 
 
-
 document.querySelector(".btn-submit").addEventListener("click", function(e) { 
-  e.preventDefault();
+  e.preventDefault(); // previent la fermeture prématuré de formulaire et l'affichage de messages d'erreur inclues par défault ds le navigateur
 
   let isValid = true;
 
-  if (!firstNameInput.validity.valid) {// function validity permet de verifier si l'utilisateur a saisi le champs de l'input en accord avec les propietés ds HTML, ici: minlength:2 et requiered
+  if (!firstNameInput.validity.valid) { // fonction validity permet de verifier si l'utilisateur a saisi le champs de l'input en accord avec les propietés ds HTML, ici: minlength:2 et requiered
     isValid = false;
-    firstNameDiv.setAttribute("data-error-visible", "true");
+    firstNameDiv.setAttribute("data-error-visible", "true"); // fonction showErrMessage (utilisé ds la version precedente) a été remplacé par les attributs de HTML 
   } else {
-    firstNameDiv.setAttribute("data-error-visible", "false");
+    firstNameDiv.setAttribute("data-error-visible", "false"); // setAttribute utilisé ici car data-error-visible est un attribut HTML non standardisé 
   }
   
   if(!lastNameInput.validity.valid) {
@@ -121,13 +128,8 @@ document.querySelector(".btn-submit").addEventListener("click", function(e) {
 
   if (isValid)
   {
-    form.submit();
-    alert("Félicitations, vous êtes inscrit !");
+    form.style.display="none";
+    document.getElementById("confirmation-message").style.display="block";
   }
 })
-
-  
-// form.addEventListener("submit", function(e) {
-//   //alert("Félicitations, vous êtes inscrit !");
-// })
 

@@ -14,21 +14,20 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="images/Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="images/Logo.png"/>
+      </div>
+      <div class="main-navbar">
+        
+        <a href="#" class="active"><span>Accueil</span></a>
+        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </div>
-    <div class="main-navbar">
-      
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    </div>
-  </div>
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -61,7 +60,7 @@
             > <!-- onsubmit="return formValidator(e);" -->
               <div
                 class="formData" data-error="Veuillez entrer un prénom comportant 2 caractères ou plus." data-error-visible="false">
-                <label for="first-name">Prénom</label><br>
+                <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
@@ -73,7 +72,7 @@
               </div>
               <div
                 class="formData" data-error="Veuillez entrer un nom comportant 2 caractères ou plus." data-error-visible="false">
-                <label for="last-name">Nom</label><br>
+                <label for="last">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
@@ -107,7 +106,7 @@
               </div>
               <div
               class="formData" data-error="Veuillez entrer un nombre valide." data-error-visible="false">
-              <label for="nbr-of-tournament">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+              <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input 
                 type="number" 
                 class="text-control" 
@@ -116,11 +115,11 @@
                 min="0" 
                 max="99"
                 required
-                /><br> <!-- J'ai ajouté la fermeture d'input et j'ai ajouté br -->
+                /><br> 
               </div>
               <div
               class="formData" data-error="Veuillez choisir une ville." data-error-visible="false">
-                <label class="text-label" for="location" required>Quelles villes ?</label><br> <!-- J'ai changé p en label et j'ai changé ca ligne, j'ai ajouté for et br. -->
+                <p class="text-label">Quelles villes ?</p> 
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -188,7 +187,6 @@
                   Portland</label
                 >
               </div>
-
               <div
                 class="formData" data-error="Veuillez accepter les conditions d'utilisations." data-error-visible="false">
                 <input
@@ -197,7 +195,7 @@
                   id="checkbox1"
                   checked
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
@@ -214,12 +212,19 @@
                 <br>
               </div>
               <input
-                class="btn-submit"
+                class="btn-submit button"
                 type="submit"
-                class="button"
                 value="C'est parti"
               />
             </form>
+          </div>
+          <div id="confirmation-message">
+            <div id="confirmation-text">
+            Merci d'avoir soumis vos informations d'inscription
+            </div>
+            <button class="btn-close">
+              Fermer
+            </button>
           </div>
         </div>
       </div>
