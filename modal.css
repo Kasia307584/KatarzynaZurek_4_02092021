@@ -34,10 +34,10 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-    float: left;
+  float: left;
 }
 .main-navbar {
-    float: right;
+  float: right;
 }
 .topnav a {
   float: left;
@@ -67,9 +67,10 @@ img {
   display: none;
 }
 
-
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
@@ -77,7 +78,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -90,16 +93,16 @@ img {
   }
 }
 
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+@media screen and (max-width: 540px) {
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
     margin-top: -15px;
   }
-} 
+}
 
 main {
   font-size: 130%;
@@ -110,7 +113,6 @@ main {
   padding-right: 2vw;
   margin: 1px 20px 15px;
   border-radius: 2rem;
-  /* text-align: justify; j'ai enleve cette propieté car cela fait des grosses espaces entre les mots */
 }
 
 .modal-btn {
@@ -188,21 +190,18 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 15px; /* j'ai diminué la taille de la fonte pour faire plus resemblant à la maquette */
+  font-size: 15px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
-  margin-top: 0.4em; /* j'ajoute cette propieté pour décoller la phrase de champs d'input au-dessus */
+  margin-top: 0.4em;
 }
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
   outline: none;
 }
-/* input:invalid { 
-  border: 2px solid red;
-} */
-/* j'ajoute pour changer le style quand le champs d'input invalide */
+/* changer le style quand le champs d'input invalide */
 .text-control {
   margin: 0;
   padding: 8px;
@@ -211,7 +210,8 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData[data-error]::after { /* ::after signifie ici d'afficher la valeur de l'attribut data-error après la div .formData */
+.formData[data-error]::after {
+  /* ::after signifie ici d'afficher la valeur de l'attribut data-error après la div .formData */
   content: attr(data-error); /* affiche le message d'erreur */
   font-size: 0.4em;
   color: #e54858;
@@ -223,18 +223,12 @@ input {
   opacity: 0;
   transition: 0.3s;
 }
-.formData[data-error-visible="true"]::after { 
+.formData[data-error-visible="true"]::after {
   opacity: 1; /* si la condition est true (voir les differents cas ds JS) affiche ce qui se trouve après la div .formData => le message d'erreur */
 }
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -343,7 +337,6 @@ input[data-error]::after {
   display: none;
   margin: auto;
   text-align: center;
-  /* height: 800px; */
 }
 #confirmation-text {
   padding: 60% 20%;
@@ -445,7 +438,7 @@ button.btn-close {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px; /* j'enleve cette propieté pour la responsivité en version mobile */
+  min-width: 424px;
 }
 .hero-content::after {
   content: "";
@@ -463,8 +456,7 @@ button.btn-close {
 .hero-headline {
   font-size: 6rem;
   font-weight: normal;
-  /* white-space: nowrap; J'enleve element pour mieux gérer la mise en page et la responsivité */
-  width: 800px; /* j'ajoute cette propieté pour la mise en page plus en accord avec les maquettes */
+  width: 800px;
 }
 .hero-text {
   width: 130%;
@@ -474,7 +466,6 @@ button.btn-close {
 }
 .btn-signup {
   outline: none;
-  /* text-transform: capitalize; j'enleve cette propieté car pas commun pour la langue française (première lettre de chaque mot dans la phrase en majuscules) */
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
@@ -488,7 +479,7 @@ button.btn-close {
   height: 100%;
   display: block;
   padding: 0;
-  object-fit: cover; /* j'ajoute pour un meilleur affichage de l'image */
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
@@ -523,8 +514,7 @@ footer {
   }
   .hero-headline {
     font-size: 3.8rem;
-    /* white-space: normal; Il n'y a plus besoin de cette propieté */
-    width: unset; /* j'ajoute cette propieté pour la responsivité de la page */
+    width: unset;
   }
   .hero-text {
     width: unset;
@@ -554,4 +544,3 @@ footer {
     opacity: 1;
   }
 }
-
