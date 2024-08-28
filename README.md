@@ -2,6 +2,8 @@
 
 This is a solution to the [OpenClassrooms](https://openclassrooms.com/) project. OpenClassrooms is one of the largest online schools in Europe, based in Paris.
 
+## Overview
+
 ### Screenshot
 
 ![](/images/screenshot.png)
@@ -22,7 +24,7 @@ Users should be able to:
 
 ### Built with
 
-- JavaScript
+- Vanilla JavaScript
 - HTML DOM API
 
 ### What I learned
